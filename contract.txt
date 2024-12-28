@@ -1,0 +1,56 @@
+Ideia de API REST: Gestão de Rotas de Entregas
+Descrição:
+A API será responsável por gerenciar rotas de entregas para uma empresa de logística.
+Ela permitirá que os usuários administrem entregadores, clientes, encomendas e rotas, otimizando o processo de entrega com relatórios e acompanhamento em tempo real.
+
+Funcionalidades:
+Gerenciamento de Entregadores
+
+Cadastrar, atualizar, excluir e listar entregadores.
+Status do entregador (ativo/inativo).
+Endpoints sugeridos:
+
+POST /entregadores - Cadastrar um novo entregador.
+GET /entregadores - Listar entregadores cadastrados.
+GET /entregadores/{id} - Consultar informações de um entregador específico.
+PUT /entregadores/{id} - Atualizar dados do entregador.
+DELETE /entregadores/{id} - Remover entregador.
+Gerenciamento de Clientes
+
+Cadastrar, atualizar, excluir e listar clientes.
+Histórico de entregas realizadas para cada cliente.
+Endpoints sugeridos:
+
+POST /clientes
+GET /clientes
+GET /clientes/{id}
+PUT /clientes/{id}
+DELETE /clientes/{id}
+Cadastro de Encomendas
+
+Informar detalhes da encomenda: cliente, peso, dimensões, endereço de origem e destino, e statusDeliveryMan (pendente, em rota, entregue).
+
+
+
+Endpoints sugeridos:
+
+POST /encomendas - Criar uma nova encomenda.
+GET /encomendas - Listar todas as encomendas (com filtros por statusDeliveryMan, cliente, entregador, etc.).
+GET /encomendas/{id} - Consultar detalhes de uma encomenda.
+PUT /encomendas/{id} - Atualizar statusDeliveryMan ou dados de uma encomenda.
+Gerenciamento de Rotas
+
+Planejar e atribuir rotas para os entregadores com base nas encomendas pendentes e na localização.
+Visualizar rotas planejadas e histórico de rotas.
+Endpoints sugeridos:
+
+Exemplos de Valores para o statusDeliveryMan
+PLANEJADA: A rota foi criada e as encomendas foram atribuídas, mas o entregador ainda não iniciou o percurso.
+EM_ANDAMENTO: O entregador iniciou a rota e está realizando as entregas.
+CONCLUIDA: A rota foi finalizada, com todas as entregas realizadas.
+CANCELADA: A rota foi cancelada por algum motivo, como mudanças na logística ou falha operacional.
+
+POST /rotas - Planejar uma rota.
+GET /rotas - Listar rotas planejadas e concluídas.
+GET /rotas/{id} - Detalhes de uma rota específica.
+PUT /rotas/{id} - Atualizar statusDeliveryMan da rota.

@@ -1,0 +1,51 @@
++-------------------+
+|    Entregador     |
++-------------------+
+| - id: Long        |
+| - nome: String    |
+| - cpf: String     |
+| - statusDeliveryMan: Enum    |
+| - telefone: String|
++-------------------+
+| + cadastrar()     |
+| + atualizar()     |
+| + inativar()      |
++-------------------+
+
+        1
+        |
+        |
+        N
++-------------------+          +-------------------+
+|      Rota         |<>--------|     Encomenda     |
++-------------------+          +-------------------+
+| - id: Long        |          | - id: Long        |
+| - data: Date      |          | - cliente: Cliente|
+| - entregador: Ent |          | - peso: Double    |
+| - encomendas: List|          | - dimensoes: String|
+| - statusDeliveryMan: Enum    |          | - origem: String  |
++-------------------+          | - destino: String |
+| + planejar()      |          | - statusDeliveryMan: Enum    |
+| + atualizar()     |          +-------------------+
+| + finalizar()     |          | + cadastrar()     |
++-------------------+          | + atualizar()     |
+                               | + consultar()     |
+                               +-------------------+
+        N
+        |
+        |
+        1
++-------------------+
+|      Cliente      |
++-------------------+
+| - id: Long        |
+| - nome: String    |
+| - cpf: String     |
+| - endereco: String|
+| - telefone: String|
++-------------------+
+| + cadastrar()     |
+| + consultar()     |
+| + atualizar()     |
+| + historico()     |
++-------------------+
